@@ -16,11 +16,18 @@
 
 // [START gae_node_request_example]
 const express = require('express');
+const path = require('path');
 
 const app = express();
 
+app.use("/public", express.static(__dirname + "/public"));
+
 app.get('/', (req, res) => {
   res.status(200).send('Hello, world - now with continuous deployment!').end();
+});
+
+app.get('/shooter', function(req, res) {
+  res.sendFile(path.join(__dirname,'public','space_shooter.html'));
 });
 
 // Start the server
