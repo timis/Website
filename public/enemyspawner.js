@@ -1,10 +1,10 @@
-let timeStep = 30.0;
+let timeStep = 20.0;
 
 // @type {Array<Object>} Each object has a speed, health, size, and color for an enemy
 let enemyTypes = [
-    {speed: 40, health: 1, color:'white'},
-    {speed: 60, health: 1, color:"orange"},
-    {speed: 80, health: 1, color:'red'}
+    {speed: 80, health: 1, color:'white'},
+    {speed: 120, health: 1, color:"orange"},
+    {speed: 160, health: 1, color:'red'}
 ];
 
 /**
@@ -33,13 +33,13 @@ class EnemySpawner {
 		this.framesPerSpawn = config.update_rate.fps / this.enemiesPerSecond;
 
 		if(this.counter >= this.framesPerSpawn){
-			let modifier = Math.min(5,1 + Math.floor(this.elapsedTime/timeStep));
+			let modifier = Math.min(8,1 + Math.floor(this.elapsedTime/timeStep));
 			this.counter = 0;
             playerStats.enemiesSpawned += 1;
             let rando = Math.floor((Math.random()*enemyTypes.length));//%enemyTypes.length;
             let yeet = Object.assign({},enemyTypes[rando]); //https://stackoverflow.com/questions/40133582/assign-value-not-reference-in-javascript
 			yeet.speed *= modifier;
-			yeet.health = Math.min(4,Math.ceil(1+Math.random()*Math.floor(this.elapsedTime/timeStep)));
+			yeet.health = Math.min(8,Math.ceil(2+Math.random()*Math.floor(this.elapsedTime/timeStep)));
 			// yeet.size.height = 8 * yeet.health;
 			let temp = new Enemy(yeet);
 		}
