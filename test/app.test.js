@@ -9,7 +9,7 @@ describe('gae_node_request_example', () => {
     });
 
     it('should get Hello, world - now with continuous deployment!', (done) => {
-      request(app).get('/').expect('Hello, world - now with continuous deployment!', done);
+      request(app).get('/').expect('Hello, Scott!', done);
     });
   });
 });
