@@ -23,7 +23,7 @@ const app = express();
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get('/', (req, res) => {
-  res.status(200).send('Hello, world - now with continuous deployment!').end();
+  res.status(200).send('Hello, Scott!').end();
 });
 
 app.get('/shooter', function(req, res) {
