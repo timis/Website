@@ -109,8 +109,8 @@ class Player extends Body {
 		super.update(delta_time);
 
 		// clip to screen
-		this.position.x = Math.min(Math.max(0, this.position.x), config.canvas_size.play_width);
-		this.position.y = Math.min(Math.max(0, this.position.y), config.canvas_size.play_height);
+		this.position.x = Math.min(Math.max(20, this.position.x), config.canvas_size.play_width-20);
+		this.position.y = Math.min(Math.max(20, this.position.y), config.canvas_size.play_height-20);
 	}
 
 }
